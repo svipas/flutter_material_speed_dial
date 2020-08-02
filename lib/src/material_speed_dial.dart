@@ -117,7 +117,7 @@ class MaterialSpeedDialState extends State<MaterialSpeedDial>
     );
   }
 
-  void close(bool reset) {
+  void close([bool reset]) {
     if (reset) {
       _animationController.reset();
     } else {
