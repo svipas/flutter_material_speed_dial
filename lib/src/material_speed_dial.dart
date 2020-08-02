@@ -16,6 +16,7 @@ class MaterialSpeedDial extends StatefulWidget {
   final double animatedIconSize;
 
   MaterialSpeedDial({
+    Key key,
     this.onPressed,
     this.tooltip,
     @required this.children,
@@ -26,13 +27,13 @@ class MaterialSpeedDial extends StatefulWidget {
     this.duration = const Duration(milliseconds: 200),
     this.animatedIcon = AnimatedIcons.menu_close,
     this.animatedIconSize = 32,
-  });
+  }) : super(key: key);
 
   @override
-  _MaterialSpeedDialState createState() => _MaterialSpeedDialState();
+  MaterialSpeedDialState createState() => MaterialSpeedDialState();
 }
 
-class _MaterialSpeedDialState extends State<MaterialSpeedDial>
+class MaterialSpeedDialState extends State<MaterialSpeedDial>
     with SingleTickerProviderStateMixin {
   AnimationController _animationController;
   var _isChildrenVisible = false;
@@ -114,6 +115,21 @@ class _MaterialSpeedDialState extends State<MaterialSpeedDial>
         ],
       ),
     );
+  }
+
+  void close(bool reset) {
+    if (reset) {
+      _animationController.reset();
+    } else {
+      _animationController.reverse();
+    }
+
+    setState(() => _isChildrenVisible = false);
+  }
+
+  void open() {
+    _animationController.forward();
+    setState(() => _isChildrenVisible = true);
   }
 
   void _onPressed() {
