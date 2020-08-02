@@ -1,0 +1,19 @@
+name: flutter_material_speed_dial
+description: Flutter material speed dial.
+version: 0.0.1
+homepage: http://github.com/svipas/flutter_material_speed_dial
+repository: http://github.com/svipas/flutter_material_speed_dial
+issue_tracker: http://github.com/svipas/flutter_material_speed_dial/issues
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
